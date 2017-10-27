@@ -1,0 +1,29 @@
+{
+    "name": "basster/doctrine-elastica-loggable-extension",
+    "type": "library",
+    "require": {
+        "php": ">=7.1",
+        "doctrine/common": "^2.8",
+        "gedmo/doctrine-extensions": "^2.4",
+        "ruflin/elastica": "^3.2"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Basster\\ElasticaLoggable\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Basster\\ElasticaLoggable\\": "tests"
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.7",
+        "phpunit/phpunit": "^6.4"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

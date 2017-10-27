@@ -1,0 +1,53 @@
+<?php
+
+return PhpCsFixer\Config::create()
+                        ->setRiskyAllowed(true)
+                        ->setRules(
+                            [
+                                '@PHP56Migration' => true,
+                                '@PHP70Migration' => true,
+                                '@PHP71Migration' => true,
+                                '@Symfony' => true,
+                                '@Symfony:risky' => true,
+                                'array_syntax' => ['syntax' => 'short'],
+                                'combine_consecutive_unsets' => true,
+                                'heredoc_to_nowdoc' => true,
+                                'list_syntax' => ['syntax' => 'long'],
+                                'no_extra_consecutive_blank_lines' => [
+                                    'break',
+                                    'continue',
+                                    'extra',
+                                    'return',
+                                    'throw',
+                                    'use',
+                                    'parenthesis_brace_block',
+                                    'square_brace_block',
+                                    'curly_brace_block',
+                                ],
+                                'mb_str_functions' => true,
+                                'new_with_braces' => false,
+                                'blank_line_after_opening_tag' => false,
+                                'linebreak_after_opening_tag' => true,
+                                'no_short_echo_tag' => true,
+                                'no_unreachable_default_argument_value' => true,
+                                'no_useless_else' => true,
+                                'no_useless_return' => true,
+                                'ordered_class_elements' => true,
+                                'ordered_imports' => true,
+                                'php_unit_strict' => true,
+                                'php_unit_test_class_requires_covers' => false,
+                                'phpdoc_add_missing_param_annotation' => true,
+                                'phpdoc_order' => true,
+                                'semicolon_after_instruction' => true,
+                                'strict_comparison' => true,
+                                'strict_param' => true,
+                                'doctrine_annotation_braces' => true,
+                                'doctrine_annotation_indentation' => true,
+                                'doctrine_annotation_spaces' => true,
+                            ]
+                        )
+                        ->setFinder(
+                            PhpCsFixer\Finder::create()
+                                             ->exclude('vendor')
+                                             ->in(__DIR__)
+                        );
