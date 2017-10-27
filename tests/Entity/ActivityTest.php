@@ -12,8 +12,13 @@ class ActivityTest extends TestCase
     const USERNAME = ' super-mario';
     const OBJECT_CLASS = \stdClass::class;
 
-    /** @var  Activity */
+    /** @var Activity */
     private $activity;
+
+    protected function setUp(): void
+    {
+        $this->activity = new Activity(self::ACTION, self::USERNAME, self::OBJECT_CLASS);
+    }
 
     /**
      * @test
@@ -41,7 +46,6 @@ class ActivityTest extends TestCase
     public function toArrayHasEmptyDataArrayByDefault(): void
     {
         self::assertSame([], $this->activity->toArray()['data']);
-
     }
 
     /**
@@ -50,10 +54,5 @@ class ActivityTest extends TestCase
     public function toArrayContainsObjectClassName(): void
     {
         self::assertSame(self::OBJECT_CLASS, $this->activity->toArray()['object_class']);
-    }
-
-    protected function setUp(): void
-    {
-        $this->activity = new Activity(self::ACTION, self::USERNAME, self::OBJECT_CLASS);
     }
 }
