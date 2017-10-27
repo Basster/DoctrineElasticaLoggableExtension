@@ -1,7 +1,7 @@
 Basster/DoctrineElasticaLoggableExtension
 ========================
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8663efc0-a078-4f28-82f0-c88d8e57b4e6/mini.png)](https://insight.sensiolabs.com/projects/8663efc0-a078-4f28-82f0-c88d8e57b4e6)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8663efc0-a078-4f28-82f0-c88d8e57b4e6/mini.png)](https://insight.sensiolabs.com/projects/8663efc0-a078-4f28-82f0-c88d8e57b4e6) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Basster/DoctrineElasticaLoggableExtension/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Basster/DoctrineElasticaLoggableExtension/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/Basster/DoctrineElasticaLoggableExtension/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Basster/DoctrineElasticaLoggableExtension/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/Basster/DoctrineElasticaLoggableExtension/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Basster/DoctrineElasticaLoggableExtension/build-status/master)
 
 This library utilizes Gedmo Loggable Doctrine Extension to persist the entity changes into elasticsearch via elastica.io.
 
