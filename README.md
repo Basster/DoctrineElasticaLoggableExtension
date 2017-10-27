@@ -1,6 +1,8 @@
 Basster/DoctrineElasticaLoggableExtension
 ========================
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8663efc0-a078-4f28-82f0-c88d8e57b4e6/mini.png)](https://insight.sensiolabs.com/projects/8663efc0-a078-4f28-82f0-c88d8e57b4e6)
+
 This library utilizes Gedmo Loggable Doctrine Extension to persist the entity changes into elasticsearch via elastica.io.
 
 To make it work in Symfony with Doctrine Extentions Bundle place the following config in your `services.yml`:

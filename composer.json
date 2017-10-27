@@ -1,5 +1,6 @@
 {
     "name": "basster/doctrine-elastica-loggable-extension",
+    "description": "This library utilizes Gedmo Loggable Doctrine Extension to persist the entity changes into elasticsearch via elastica.io.",
     "type": "library",
     "require": {
         "php": ">=7.1",
