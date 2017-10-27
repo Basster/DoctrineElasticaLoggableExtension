@@ -39,7 +39,7 @@ class Activity extends AbstractLogEntry implements ArrayableInterface
     public function getData()
     {
         $changed = parent::getData();
-        $data = array();
+        $data = [];
 
         if ($changed) { // is null during deletions
             foreach ($changed as $property => $value) {
@@ -55,13 +55,10 @@ class Activity extends AbstractLogEntry implements ArrayableInterface
         }
 
         return $data;
-
-
-
-
     }
 
-    public function setChangeSet($changeSet) {
+    public function setChangeSet($changeSet)
+    {
         $this->changeSet = $changeSet;
     }
 }
