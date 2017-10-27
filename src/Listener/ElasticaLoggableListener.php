@@ -108,12 +108,7 @@ class ElasticaLoggableListener extends LoggableListener
         }
 
         if ($config = $this->getConfiguration($om, $meta->name)) {
-            $logEntry = new Activity;
-
-            $logEntry->setAction($action);
-            $logEntry->setUsername($this->username);
-            $logEntry->setObjectClass($meta->name);
-            $logEntry->setLoggedAt();
+            $logEntry = new Activity($action, $this->username, $meta->name);
 
             // check for the availability of the primary key
             if (self::ACTION_CREATE === $action && $ea->isPostInsertGenerator($meta)) {
