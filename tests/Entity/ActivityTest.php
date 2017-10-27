@@ -12,12 +12,8 @@ class ActivityTest extends TestCase
     const USERNAME = ' super-mario';
     const OBJECT_CLASS = \stdClass::class;
 
+    /** @var  Activity */
     private $activity;
-
-    protected function setUp(): void
-    {
-        $this->activity = new Activity(self::ACTION, self::USERNAME, self::OBJECT_CLASS);
-    }
 
     /**
      * @test
@@ -33,7 +29,19 @@ class ActivityTest extends TestCase
     public function toArrayContainsLoggedAtTimestampInAtomFormat(): void
     {
         // 'Y-m-d\TH:i:sP'
-        self::assertRegExp('/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[-+]\d{2}:\d{2}/', $this->activity->toArray()['logged_at']);
+        self::assertRegExp(
+            '/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[-+]\d{2}:\d{2}/',
+            $this->activity->toArray()['logged_at']
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function toArrayHasEmptyDataArrayByDefault(): void
+    {
+        self::assertSame([], $this->activity->toArray()['data']);
+
     }
 
     /**
@@ -42,5 +50,10 @@ class ActivityTest extends TestCase
     public function toArrayContainsObjectClassName(): void
     {
         self::assertSame(self::OBJECT_CLASS, $this->activity->toArray()['object_class']);
+    }
+
+    protected function setUp(): void
+    {
+        $this->activity = new Activity(self::ACTION, self::USERNAME, self::OBJECT_CLASS);
     }
 }
