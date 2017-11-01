@@ -16,7 +16,7 @@ class Activity extends AbstractLogEntry implements ArrayableInterface
     /** @var array */
     private $changeSet;
 
-    public function __construct(string $action, string $username, string $objectClass)
+    public function __construct(string $action, ?string $username, string $objectClass)
     {
         $this->setAction($action);
         $this->setUsername($username);

@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
 class ActivityTest extends TestCase
 {
     const ACTION = 'create';
-    const USERNAME = ' super-mario';
     const OBJECT_CLASS = \stdClass::class;
+    const USERNAME = ' super-mario';
 
     /** @var Activity */
     private $activity;
@@ -54,5 +54,14 @@ class ActivityTest extends TestCase
     public function toArrayContainsObjectClassName(): void
     {
         self::assertSame(self::OBJECT_CLASS, $this->activity->toArray()['object_class']);
+    }
+
+    /**
+     * @test
+     */
+    public function usernameCanBeNull(): void
+    {
+        $activity = new Activity(self::ACTION, null, self::OBJECT_CLASS);
+        self::assertNull($activity->toArray()['username']);
     }
 }
