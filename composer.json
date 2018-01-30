@@ -6,7 +6,7 @@
         "php": ">=7.1",
         "doctrine/common": "^2.8",
         "gedmo/doctrine-extensions": "^2.4",
-        "ruflin/elastica": "^3.2"
+        "ruflin/elastica": "^5.2.1|^6.0"
     },
     "license": "MIT",
     "minimum-stability": "stable",
