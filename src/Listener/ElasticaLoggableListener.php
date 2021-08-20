@@ -5,8 +5,9 @@ namespace Basster\ElasticaLoggable\Listener;
 
 use Basster\ElasticaLoggable\Entity\Activity;
 use Doctrine\Common\EventArgs;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Elastica\Document;
+use Elastica\Index;
 use Elastica\Type;
 use Gedmo\Loggable\LoggableListener;
 use Gedmo\Loggable\Mapping\Event\LoggableAdapter;
@@ -17,21 +18,17 @@ use Gedmo\Tool\Wrapper\AbstractWrapper;
  */
 class ElasticaLoggableListener extends LoggableListener
 {
-    /** @var \Elastica\Type */
-    private $type;
+    private Index $index;
 
-    /** @var   */
-    private $activities;
+    private array $activities;
 
     /**
      * ElasticaLoggableListener constructor.
-     *
-     * @param \Elastica\Type $type
      */
-    public function __construct(Type $type)
+    public function __construct(Index $index)
     {
         parent::__construct();
-        $this->type = $type;
+        $this->index = $index;
         $this->activities = [];
     }
 
@@ -96,7 +93,7 @@ class ElasticaLoggableListener extends LoggableListener
         }
     }
 
-    protected function createLogEntry($action, $object, LoggableAdapter $ea)
+    protected function createLogEntry($action, $object, LoggableAdapter $ea): ?Activity
     {
         $om = $ea->getObjectManager();
         $wrapped = AbstractWrapper::wrap($object, $om);
@@ -137,17 +134,17 @@ class ElasticaLoggableListener extends LoggableListener
         return null;
     }
 
-    private function store(Activity $activity)
+    private function store(Activity $activity): void
     {
         $this->activities[] = $activity;
     }
 
-    private function persist(Activity $logEntry)
+    private function persist(Activity $logEntry): void
     {
         $document = new Document();
         $document->setData($logEntry->toArray());
 
-        $this->type->addDocument($document);
-        $this->type->getIndex()->refresh();
+        $this->index->addDocument($document);
+        $this->index->refresh();
     }
 }

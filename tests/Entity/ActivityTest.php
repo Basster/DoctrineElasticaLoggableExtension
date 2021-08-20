@@ -6,6 +6,9 @@ namespace Tests\Basster\ElasticaLoggable\Entity;
 use Basster\ElasticaLoggable\Entity\Activity;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Basster\ElasticaLoggable\Entity\Activity
+ */
 class ActivityTest extends TestCase
 {
     const ACTION = 'create';
@@ -34,7 +37,7 @@ class ActivityTest extends TestCase
     public function toArrayContainsLoggedAtTimestampInAtomFormat(): void
     {
         // 'Y-m-d\TH:i:sP'
-        self::assertRegExp(
+        self::assertMatchesRegularExpression(
             '/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[-+]\d{2}:\d{2}/',
             $this->activity->toArray()['logged_at']
         );
